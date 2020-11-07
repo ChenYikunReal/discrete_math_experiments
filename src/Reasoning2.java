@@ -1,18 +1,10 @@
-
-
-public class Reasoning {
+public class Reasoning2 {
     
-    //int转boolean
-    public static boolean changeType(int var) {
-        if (var == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    private static final boolean[] array = {false, true};
     
     //合取
-    public static boolean Conjunction(boolean var1, boolean var2, boolean var3, boolean var4, boolean var5){
+    public static boolean Conjunction(boolean var1, boolean var2,
+            boolean var3, boolean var4, boolean var5){
         if (var1 && var2 && var3 && var4 && var5){
             return true;
         }else{
@@ -30,8 +22,10 @@ public class Reasoning {
     }
     
     //逻辑推理最终表达式真伪
-    public static boolean judge(boolean var1, boolean var2, boolean var3, boolean var4, boolean var5){
-        if (Conjunction(Disjunctive(var1, var2), Disjunctive(!var1, !var3), Disjunctive(!var4, !var5), Disjunctive(var4, var3), var5)) {
+    public static boolean judge(boolean var1, boolean var2, 
+            boolean var3, boolean var4, boolean var5){
+        if (Conjunction(Disjunctive(var1, var2), Disjunctive(!var1, !var3),
+                Disjunctive(!var4, !var5), Disjunctive(var4, var3), var5)) {
             return true;
         } else {
             return false;
@@ -57,18 +51,12 @@ public class Reasoning {
     
     //main方法
     public static void main(String[] args) {
-        boolean A, B, C, D, E;
-        for (int a = 0; a <= 1; a++) {
-            for (int b = 0; b <= 1; b++) {
-                for (int c = 0; c <= 1; c++) {
-                    for (int d = 0; d <= 1; d++) {
-                        for (int e = 0; e <= 1; e++) {
-                            A = changeType(a);
-                            B = changeType(b);
-                            C = changeType(c);
-                            D = changeType(d);
-                            E = changeType(e);
-                            getResult(judge(A, B, C, D, E), A, B);
+        for (boolean a : array) {
+            for (boolean b : array) {
+                for (boolean c : array) {
+                    for (boolean d : array) {
+                        for (boolean e : array) {
+                            getResult(judge(a, b, c, d, e), a, b);
                         }
                     }
                 }
